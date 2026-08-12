@@ -1,5 +1,7 @@
 {
   "general": {
-    "home": "Início"
+    "home": "Início",
+    "platforms": "Plataformas",
+    "categories": "Categorias"
   }
 }
