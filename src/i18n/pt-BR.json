@@ -39,6 +39,8 @@
     "mednafen_ngp": "snk-ngpc"
   },
   "games": {
-    "allGames": "Todos os jogos"
+    "allGames": "Todos os jogos",
+    "description": "Descrição",
+    "play": "Jogar"
   }
 }

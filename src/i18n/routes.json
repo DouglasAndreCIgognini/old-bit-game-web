@@ -1,5 +1,6 @@
 {
   "PLATFORMS": "/platforms",
   "CATEGORIES": "/categories",
-  "HOME": "/"
+  "HOME": "/",
+  "GAME": "/game"
 }

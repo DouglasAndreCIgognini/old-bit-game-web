@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #ffb703;
-  --color-primary-hover: #fb8500;
+  --color-primary: #d99000;
+  --color-primary-hover: #b87300;
 
   --color-background: #f8fafc;
   --color-surface: #ffffff;
@@ -12,6 +12,7 @@
 
   --color-text: #0f172a;
   --color-text-muted: #64748b;
+  --color-text-on-primary: #f8fafc;
 
   --color-border: #e2e8f0;
 
@@ -19,12 +20,16 @@
 }
 
 .dark {
+  --color-primary: #ffb703;
+  --color-primary-hover: #fb8500;
+
   --color-background: #0b0f14;
   --color-surface: #151a21;
   --color-surface-hover: #1d242d;
 
   --color-text: #f8fafc;
   --color-text-muted: #94a3b8;
+  --color-text-on-primary: #f8fafc;
 
   --color-border: #29313d;
 }
