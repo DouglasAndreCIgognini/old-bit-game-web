@@ -13,7 +13,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
   const theme = cookieStore.get('theme')?.value
   return (
     <html lang="pt-BR" className={theme}>
-      <body className="bg-background text-text flex min-h-full flex-col">
+      <body className="bg-background flex min-h-full flex-col">
         <Header />
         {children}
       </body>
