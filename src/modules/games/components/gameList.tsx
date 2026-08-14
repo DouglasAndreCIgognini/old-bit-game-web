@@ -1,8 +1,11 @@
 import Image from 'next/image'
 
-import { GamePagination } from './gamePagination'
 import { Game } from '../types/game'
 import { translate } from '@/src/i18n'
+import { Card } from '@/src/components/ui/card'
+import Chip from '@/src/components/ui/chip'
+import { ListPaginator } from '@/src/components/layout/listPaginator'
+import routes from '@/src/i18n/routes.json'
 
 type GameListProps = {
   games: Game[]
@@ -12,13 +15,10 @@ type GameListProps = {
 
 export function GameList({ games, currentPage, totalPages }: GameListProps) {
   return (
-    <section>
+    <div>
       <div className="grid grid-cols-2 justify-items-center gap-12 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {games.map((game) => (
-          <article
-            key={game.id}
-            className="border-border bg-surface w-full max-w-45 overflow-hidden rounded-lg border"
-          >
+          <Card key={game.id} className="max-w-45">
             <div className="relative aspect-3/4 w-full">
               <Image
                 src={game.image_url ?? '/logo.png'}
@@ -39,23 +39,22 @@ export function GameList({ games, currentPage, totalPages }: GameListProps) {
               {game.categories.length > 0 && (
                 <div className="mt-2 flex flex-wrap gap-1">
                   {game.categories.map(({ category }) => (
-                    <span
-                      key={category.id}
-                      className="bg-surface-hover text-text-muted rounded px-2 py-1 text-xs"
-                    >
-                      {category.name}
-                    </span>
+                    <Chip key={category.id}>{category.name}</Chip>
                   ))}
                 </div>
               )}
             </div>
-          </article>
+          </Card>
         ))}
       </div>
 
       <div className="mt-8">
-        <GamePagination currentPage={currentPage} totalPages={totalPages} />
+        <ListPaginator
+          currentPage={currentPage}
+          totalPages={totalPages}
+          currentRoute={routes.HOME}
+        />
       </div>
-    </section>
+    </div>
   )
 }
