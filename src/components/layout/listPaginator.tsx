@@ -5,15 +5,31 @@ interface ListPaginatorProps {
   currentPage: number
   totalPages: number
   currentRoute: string
+  queryParams?: Record<string, string | number | undefined>
 }
 
 export function ListPaginator({
   currentPage,
   totalPages,
   currentRoute,
+  queryParams = {},
 }: ListPaginatorProps) {
   if (totalPages <= 1) {
     return null
+  }
+
+  const buildHref = (page: number) => {
+    const params = new URLSearchParams()
+
+    Object.entries(queryParams).forEach(([key, value]) => {
+      if (value !== undefined && value !== null && value !== '') {
+        params.set(key, String(value))
+      }
+    })
+
+    params.set('page', String(page))
+
+    return `${currentRoute}?${params.toString()}`
   }
 
   const pages: (number | 'ellipsis')[] = []
@@ -47,7 +63,7 @@ export function ListPaginator({
     <nav className="flex items-center justify-center gap-2">
       {currentPage > 1 && (
         <Link
-          href={`${currentRoute}?page=${currentPage - 1}`}
+          href={buildHref(currentPage - 1)}
           className="border-border bg-surface text-text hover:bg-surface-hover rounded-md border px-3 py-2 text-sm transition-colors"
         >
           {translate('pagination.previous')}
@@ -68,7 +84,7 @@ export function ListPaginator({
         return (
           <Link
             key={page}
-            href={`${currentRoute}?page=${page}`}
+            href={buildHref(page)}
             className={`rounded-md px-3 py-2 text-sm transition-colors ${
               isActive
                 ? 'bg-primary text-background'
@@ -82,7 +98,7 @@ export function ListPaginator({
 
       {currentPage < totalPages && (
         <Link
-          href={`${currentRoute}?page=${currentPage + 1}`}
+          href={buildHref(currentPage + 1)}
           className="border-border bg-surface text-text hover:bg-surface-hover rounded-md border px-3 py-2 text-sm transition-colors"
         >
           {translate('pagination.next')}

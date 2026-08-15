@@ -37,9 +37,13 @@ const GameCard = ({ game }: GameCardProps) => {
           </div>
         )}
 
+        <p className="text-text my-2 text-sm">
+          {game.played_count} {translate('games.playedCount')}
+        </p>
+
         <Link href={`${routes.GAME}/${game.id}`} className="mt-auto block pt-3">
-          <Button className="bg-primary hover:bg-primary-hover w-full">
-            <p className="text-text-on-primary">{translate('games.play')}</p>
+          <Button className="bg-primary text-background hover:bg-primary-hover w-full">
+            <p>{translate('games.play')}</p>
           </Button>
         </Link>
       </div>

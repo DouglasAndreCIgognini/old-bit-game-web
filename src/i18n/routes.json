@@ -2,5 +2,6 @@
   "PLATFORMS": "/platforms",
   "CATEGORIES": "/categories",
   "HOME": "/",
-  "GAME": "/game"
+  "GAME": "/game",
+  "SEARCH": "/search"
 }

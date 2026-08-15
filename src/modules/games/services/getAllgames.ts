@@ -1,8 +1,12 @@
-import { request } from '@/src/utils/requests'
+import {
+  buildGameQueryString,
+  QueryParams,
+  request,
+} from '@/src/utils/requests'
 import { Game } from '../types/game'
 
-interface GetAllGamesResponse {
-  data: Game[]
+export interface GetAllGamesResponse {
+  data?: Game[]
   meta: {
     page: number
     limit: number
@@ -11,14 +15,8 @@ interface GetAllGamesResponse {
   }
 }
 
-export const getAllGames = async ({
-  page = 1,
-  limit = 20,
-}: {
-  page: number
-  limit: number
-}) => {
-  const response = await request(`/game?page=${page}&limit=${limit}`)
+export const getAllGames = async (params: QueryParams = {}) => {
+  const response = await request(`/game${buildGameQueryString(params)}`)
 
   return response as GetAllGamesResponse
 }

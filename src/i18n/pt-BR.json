@@ -4,7 +4,15 @@
     "platforms": "Plataformas",
     "categories": "Categorias",
     "total": "Total",
-    "games": "Jogos"
+    "games": "Jogos",
+    "search": "Buscar",
+    "quantity": "Quantidade",
+    "orderBy": "Ordenar por",
+    "order": "Ordem",
+    "platform": "Plataforma",
+    "filter": "Filtrar",
+    "asc": "Crescente",
+    "desc": "Decrescente"
   },
   "pagination": {
     "previous": "Anterior",
@@ -13,6 +21,12 @@
   "games": {
     "allGames": "Todos os jogos",
     "description": "Descrição",
-    "play": "Jogar"
+    "play": "Jogar",
+    "notFound": "404 - Nenhum jogo encontrado!",
+    "playedCount": " reproduções"
+  },
+  "filters": {
+    "generalSearch": "Busca Geral",
+    "resultsTo": "Resultados para:"
   }
 }
