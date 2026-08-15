@@ -29,7 +29,7 @@ export default function GameRunner({ game }: GameRunnerProps) {
     const gameUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/game/${game.id}/play`
 
     window.EJS_player = '#game'
-    window.EJS_core = game.platform
+    window.EJS_core = game.core
     window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'
     window.EJS_gameUrl = gameUrl
     window.EJS_gameName = game.title
@@ -115,7 +115,7 @@ export default function GameRunner({ game }: GameRunnerProps) {
       delete (window as any).EJS_gameName
       delete (window as any).EJS_emulator
     }
-  }, [game.id, game.platform, game.title])
+  }, [game.id, game.core, game.title])
 
   return <div ref={rootRef} id="game" className="aspect-video w-full" />
 }

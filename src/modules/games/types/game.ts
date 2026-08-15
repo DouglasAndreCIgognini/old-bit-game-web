@@ -3,6 +3,7 @@ export interface Game {
   title: string
   link: string
   platform: string
+  core: string
   description: string | null
   image_url: string | null
   categories: [
