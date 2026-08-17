@@ -4,8 +4,7 @@ import { Card } from '@/src/components/ui/card'
 import Chip from '@/src/components/ui/chip'
 import Link from 'next/link'
 import { Button } from '@/src/components/ui/button'
-import { translate } from '@/src/i18n'
-import routes from '@/src/i18n/routes.json'
+import { getRoute, translate } from '@/src/i18n'
 
 interface GameCardProps {
   game: Game
@@ -41,7 +40,10 @@ const GameCard = ({ game }: GameCardProps) => {
           {game.played_count} {translate('games.playedCount')}
         </p>
 
-        <Link href={`${routes.GAME}/${game.id}`} className="mt-auto block pt-3">
+        <Link
+          href={`${getRoute('GAME')}/${game.id}`}
+          className="mt-auto block pt-3"
+        >
           <Button className="bg-primary text-background hover:bg-primary-hover w-full">
             <p>{translate('games.play')}</p>
           </Button>

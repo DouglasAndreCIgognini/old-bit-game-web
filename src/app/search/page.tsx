@@ -1,6 +1,6 @@
 import { getAllGames } from '@/src/modules/games/services/getAllgames'
 import GamePage from '@/src/modules/games/components/gamePage'
-import routes from '@/src/i18n/routes.json'
+import { getRoute } from '@/src/i18n'
 
 type SearchPageProps = {
   searchParams: Promise<{
@@ -36,7 +36,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     <GamePage
       games={games}
       filters={{ page, limit, orderBy, order, q, platform }}
-      baseUrl={routes.SEARCH}
+      baseUrl={getRoute('SEARCH')}
     />
   )
 }

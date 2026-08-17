@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { ThemeToggle } from '../themeToggle'
 import Link from 'next/link'
-import routes from '@/src/i18n/routes.json'
 import { SearchBar } from './searchBar'
+import { getRoute } from '@/src/i18n'
 
 const Header = () => {
   return (
     <header className="border-primary bg-background/95 sticky top-0 z-20 border-b backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <Link href={routes.HOME} className="shrink-0">
+        <Link href={getRoute('HOME')} className="shrink-0">
           <Image
             src="/logo.png"
             alt="Old bit game logo"

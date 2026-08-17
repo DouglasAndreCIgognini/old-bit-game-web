@@ -3,5 +3,6 @@
   "CATEGORIES": "/categories",
   "HOME": "/",
   "GAME": "/game",
-  "SEARCH": "/search"
+  "SEARCH": "/search",
+  "NOT_FOUND": "/404"
 }
