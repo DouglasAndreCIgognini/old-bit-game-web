@@ -1,8 +1,4 @@
-import {
-  buildGameQueryString,
-  QueryParams,
-  request,
-} from '@/src/utils/requests'
+import { buildQueryString, QueryParams, request } from '@/src/utils/requests'
 import { Game } from '../types/game'
 
 export interface GetAllGamesResponse {
@@ -16,7 +12,7 @@ export interface GetAllGamesResponse {
 }
 
 export const getAllGames = async (params: QueryParams = {}) => {
-  const response = await request(`/game${buildGameQueryString(params)}`)
+  const response = await request(`/game${buildQueryString(params)}`)
 
   return response as GetAllGamesResponse
 }

@@ -7,24 +7,18 @@ export type QueryParams = {
   platform?: string
 }
 
-export const buildGameQueryString = ({
-  page = 1,
-  limit = 20,
-  orderBy = 'title',
-  order = 'asc',
-  q = '',
-  platform = '',
-}: QueryParams) => {
-  const params = new URLSearchParams({
-    page: String(page),
-    limit: String(limit),
-    orderBy,
-    order,
-    ...(q && { q }),
-    ...(platform && { platform }),
+export const buildQueryString = (queryParams: QueryParams) => {
+  const params = new URLSearchParams()
+
+  Object.entries(queryParams).forEach(([key, value]) => {
+    if (value !== undefined && value !== null) {
+      params.append(key, String(value))
+    }
   })
 
-  return `?${params.toString()}`
+  const queryString = params.toString()
+
+  return queryString ? `?${queryString}` : ''
 }
 
 export const request = async (path: string, options?: RequestInit) => {
